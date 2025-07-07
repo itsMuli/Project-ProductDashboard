@@ -3,12 +3,12 @@ import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import Image from 'next/image'
 
-export default async function ProductDetailsPage({
-  params,
-}: {
+type Props = {
   params: { id: string }
-}) {
-  const id = params.id
+}
+
+export default async function ProductDetailsPage({ params }: Props) {
+  const id = params?.id
 
   if (!id) return notFound()
 
