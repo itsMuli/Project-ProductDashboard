@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { Product } from "@/lib/api"
 import Image from "next/image"
+import { Button } from './ui/button'
 
 type Props = {
   product: Product
@@ -10,7 +11,8 @@ type Props = {
 
 export default function ProductCard({ product }: Props) {
   return (
-    <Link href={`/products/${product.id}`} className="block">
+    <div>
+      <Link href={`/products/${product.id}`} className="block">
       <div className="bg-card text-card-foreground transition-all duration-300 border border-border rounded-lg shadow-sm hover:shadow-md p-4 flex flex-col w-full h-full group">
         
         {/* Product Image */}
@@ -42,8 +44,15 @@ export default function ProductCard({ product }: Props) {
               ⭐ {product.rating}
             </span>
           </div>
-        </div>
+        </div> <Button
+        // onClick={() => addToCart?.(product)}
+        className="mt-4 w-full bg-green-600 text-white hover:bg-green-700 transition-colors text-sm sm:text-base"
+      >
+        Add to Cart
+      </Button>
       </div>
     </Link>
+    </div>
+    
   )
 }
