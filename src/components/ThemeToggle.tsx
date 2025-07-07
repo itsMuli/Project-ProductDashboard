@@ -15,7 +15,7 @@ export function ThemeToggle() {
       size="icon"
       className="rounded-full relative cursor-pointer"
       onClick={() => setTheme(nextTheme)}
-      aria-label={`Switch to ${nextTheme} mode`}
+      aria-label="Switch Mode"
       title="Mode"
     >
       <FaSun className="absolute h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
