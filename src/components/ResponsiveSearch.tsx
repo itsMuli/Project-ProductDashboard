@@ -71,7 +71,8 @@ export default function ResponsiveSearch() {
       {/* Mobile search icon */}
       <button
         onClick={() => setShowInput(true)}
-        className="bg-white dark:bg-popover text-black dark:text-white transition-all duration-30 p-2 text-gray-600 hover:text-black lg:hidden"
+        className="bg-white dark:bg-popover text-black dark:text-white transition-all duration-30 p-2 text-gray-600 hover:text-black lg:hidden cursor-pointer"
+        aria-label='Open search'
       >
         <Search size={20} />
       </button>
