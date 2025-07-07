@@ -2,12 +2,13 @@ import { fetchProductById, fetchProducts } from '@/lib/api'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import Image from 'next/image'
-interface PageProps {
-  params: { id: string }
-}
 
-export default async function ProductDetailsPage({ params }: PageProps) {
-  const id = params?.id
+export default async function ProductDetailsPage({
+  params,
+}: {
+  params: { id: string }
+}) {
+  const id = params.id
 
   if (!id) return notFound()
 
