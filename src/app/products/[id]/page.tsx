@@ -3,12 +3,12 @@ import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import Image from 'next/image'
 
-type Props = {
-  params: { id: string }
-}
-
-export default async function ProductDetailsPage({ params }: Props) {
-  const id = params?.id
+export default async function ProductDetailsPage({
+  params,
+}: {
+  params: Promise<{ id: string }>
+}) {
+  const { id } = await params
 
   if (!id) return notFound()
 
@@ -56,6 +56,16 @@ export default async function ProductDetailsPage({ params }: Props) {
           </div>
         </section>
 
+        {/* Back to Products Button */}
+        <div>
+          <Link
+            href="/products"
+            className="inline-block px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 transition text-sm sm:text-base"
+          >
+            ← Back to Products
+          </Link>
+        </div>
+
         {/* Related Products */}
         {related.length > 0 && (
           <section>
@@ -79,7 +89,9 @@ export default async function ProductDetailsPage({ params }: Props) {
                     />
                   </div>
                   <h3 className="text-md font-semibold">{p.title}</h3>
-                  <p className="text-sm text-green-600 dark:text-green-400">${p.price}</p>
+                  <p className="text-sm text-green-600 dark:text-green-400">
+                    ${p.price}
+                  </p>
                 </Link>
               ))}
             </div>
@@ -91,4 +103,12 @@ export default async function ProductDetailsPage({ params }: Props) {
   } catch (error) {
     return notFound()
   }
+}
+
+// ✅ Static params generation to improve performance & avoid cold loads
+export async function generateStaticParams() {
+  const data = await fetchProducts()
+  return data.products.map((product) => ({
+    id: product.id.toString(),
+  }))
 }

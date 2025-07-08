@@ -11,7 +11,7 @@ export default function CategoryDropdown({ value, options, onChange }: Props) {
     <select
       value={value}
       onChange={(e) => onChange(e.target.value)}
-      className="bg-white dark:bg-secondary text-black dark:text-white transition-all duration-30 w-full md:w-auto px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
+      className="bg-white dark:bg-secondary text-black dark:text-white transition-all duration-30 w-full md:w-auto px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-green-400"
     >
       <option value="">All Categories</option>
       {options.map((category) => (
