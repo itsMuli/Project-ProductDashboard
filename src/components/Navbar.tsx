@@ -8,7 +8,7 @@ export default function Navbar() {
   return (
     <header className="bg-white dark:bg-popover text-black dark:text-white transition-all duration-300 shadow sticky top-0 z-50">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-        <Link href="/products" className="text-xl font-bold text-green-700">
+        <Link href="/" className="text-xl font-bold text-green-700">
           🛒 ProductDash
         </Link>
 
