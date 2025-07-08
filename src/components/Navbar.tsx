@@ -1,8 +1,14 @@
 "use client";
 
 import Link from "next/link";
-import ResponsiveSearch from "./ResponsiveSearch";
+// import ResponsiveSearch from "./ResponsiveSearch";
 import { ThemeToggle } from "./ThemeToggle";
+import dynamic from 'next/dynamic'
+
+const ResponsiveSearch = dynamic(() => import('./ResponsiveSearch'), {
+  ssr: false,
+})
+
 
 export default function Navbar() {
   return (

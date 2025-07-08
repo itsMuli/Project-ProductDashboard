@@ -9,9 +9,10 @@ type Props = {
 
 export default function Layout({ children }: Props) {
   return (
-    <div className=" bg-white dark:bg-secondary text-black dark:text-white transition-all duration-30 min-h-screen bg-gray-50 text-gray-900">
+    <div className="min-h-screen bg-white dark:bg-secondary text-black dark:text-white transition-all duration-300">
       <Navbar />
-      <main className="container mx-auto px-4 py-8">{children}</main>
+      <main className="max-w-6xl mx-auto px-4 py-8">{children}</main>
     </div>
   )
 }
+
